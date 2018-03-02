@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ns.each do |n| %>
+      <tr>
+        <td><%= n.name %></td>
+        <td><%= link_to 'Show', n %></td>
+        <td><%= link_to 'Edit', edit_n_path(n) %></td>
+        <td><%= link_to 'Destroy', n, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New N', new_n_path %>

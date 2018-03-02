@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pop.name %>
+</p>
+
+<p>
+  <strong>Ip:</strong>
+  <%= @pop.ip %>
+</p>
+
+<p>
+  <strong>Instance:</strong>
+  <%= @pop.instance %>
+</p>
+
+<%= link_to 'Edit', edit_pop_path(@pop) %> |
+<%= link_to 'Back', pops_path %>

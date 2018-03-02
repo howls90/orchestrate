@@ -1,0 +1,2 @@
+module RrhsHelper
+end

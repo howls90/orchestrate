@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pops</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Ip</th>
+      <th>Instance</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pops.each do |pop| %>
+      <tr>
+        <td><%= pop.name %></td>
+        <td><%= pop.ip %></td>
+        <td><%= pop.instance %></td>
+        <td><%= link_to 'Show', pop %></td>
+        <td><%= link_to 'Edit', edit_pop_path(pop) %></td>
+        <td><%= link_to 'Destroy', pop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pop', new_pop_path %>

@@ -1,0 +1,194 @@
+{
+  "apiVersion": "v1",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "alarms",
+  "apis": [
+    {
+      "path": "/api/v1/alarms",
+      "operations": [
+        {
+          "summary": "Fetches all Alarms",
+          "notes": "This lists all Alarms",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "The request you made is not acceptable"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Request Range Not Satisfiable"
+            }
+          ],
+          "nickname": "Api::V1::Alarms#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/alarms",
+      "operations": [
+        {
+          "summary": "Create new Alarm",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "name",
+              "type": "string",
+              "description": "Name",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Alarms#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/alarms/{id}",
+      "operations": [
+        {
+          "summary": "Show Alarm content",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Alarm ID",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Alarms#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/alarms/{id}",
+      "operations": [
+        {
+          "summary": "Update existing Alarm",
+          "notes": "Update Alarm",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Alarm ID",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "name",
+              "type": "string",
+              "description": "Name",
+              "required": false
+            }
+          ],
+          "nickname": "Api::V1::Alarms#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/alarms/{id}",
+      "operations": [
+        {
+          "summary": "Delete Alarm",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Alarm ID",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Alarms#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

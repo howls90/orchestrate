@@ -1,0 +1,22 @@
+<%= form_with(model: vnf, local: true) do |form| %>
+  <% if vnf.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vnf.errors.count, "error") %> prohibited this vnf from being saved:</h2>
+
+      <ul>
+      <% vnf.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :vnf_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

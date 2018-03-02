@@ -1,0 +1,192 @@
+{
+  "apiVersion": "v1",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "vnfs",
+  "apis": [
+    {
+      "path": "/api/v1/vnfs",
+      "operations": [
+        {
+          "summary": "Fetches all VNFs",
+          "notes": "This lists all VNFs",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "The request you made is not acceptable"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Request Range Not Satisfiable"
+            }
+          ],
+          "nickname": "Api::V1::Vnfs#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/vnfs",
+      "operations": [
+        {
+          "summary": "Create new VNF",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "name",
+              "type": "string",
+              "description": "Name",
+              "required": false
+            }
+          ],
+          "nickname": "Api::V1::Vnfs#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/vnfs/{id}",
+      "operations": [
+        {
+          "summary": "Show VNF content",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "VNF ID",
+              "required": false
+            }
+          ],
+          "nickname": "Api::V1::Vnfs#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/vnfs/{id}",
+      "operations": [
+        {
+          "summary": "Update a existed VNF",
+          "notes": "Notes for updating a existed VNF",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "The request you made is not acceptable"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "VNF ID",
+              "required": false
+            }
+          ],
+          "nickname": "Api::V1::Vnfs#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/vnfs/{id}",
+      "operations": [
+        {
+          "summary": "Delete VNF",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "VNF ID",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Vnfs#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

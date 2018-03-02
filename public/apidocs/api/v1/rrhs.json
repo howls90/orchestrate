@@ -1,0 +1,265 @@
+{
+  "apiVersion": "v1",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "rrhs",
+  "apis": [
+    {
+      "path": "/api/v1/scenarios/{scenario_id}/rrhs",
+      "operations": [
+        {
+          "summary": "Fetches all RRHs",
+          "notes": "This lists all the RRHs",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "The request you made is not acceptable"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Requested Range Not Satisfiable"
+            }
+          ],
+          "nickname": "Api::V1::Rrhs#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/scenarios/{scenario_id}/rrhs",
+      "operations": [
+        {
+          "summary": "Create new Radio Remote Head",
+          "notes": "Create radio Remote Head",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "ip",
+              "type": "string",
+              "description": "IP",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "model",
+              "type": "string",
+              "description": "Model",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "version",
+              "type": "string",
+              "description": "Version",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "latitude",
+              "type": "float",
+              "description": "Latitude",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "longitude",
+              "type": "float",
+              "description": "Longitude",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "scenario_id",
+              "type": "long",
+              "description": "Scenario ID",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Rrhs#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/scenarios/{scenario_id}/rrhs/{id}",
+      "operations": [
+        {
+          "summary": "Show RRH content",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "Rrh",
+              "message": "Success"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "RRH ID",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Rrhs#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/scenarios/{scenario_id}/rrhs/{id}",
+      "operations": [
+        {
+          "summary": "Update existing Radio Remote Head",
+          "notes": "Update Radio Remote Head",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "RRH ID",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "ip",
+              "type": "string",
+              "description": "IP",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "model",
+              "type": "string",
+              "description": "Model",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "version",
+              "type": "string",
+              "description": "Version",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "latitude",
+              "type": "float",
+              "description": "Latitude",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "longitude",
+              "type": "float",
+              "description": "Longitude",
+              "required": false
+            },
+            {
+              "paramType": "path",
+              "name": "scenario_id",
+              "type": "integer",
+              "description": "Scenario ID",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Rrhs#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/scenarios/{scenario_id}/rrhs/{id}",
+      "operations": [
+        {
+          "summary": "Deletes an existing Radio Remote Head",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "RRH ID",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Rrhs#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

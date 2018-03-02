@@ -1,0 +1,187 @@
+{
+  "apiVersion": "v1",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "scenarios",
+  "apis": [
+    {
+      "path": "/api/v1/scenarios",
+      "operations": [
+        {
+          "summary": "Fetches all Scenarios",
+          "notes": "This lists all Scenarios",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "The request you made is not acceptable"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Requested Range Not Satisfiable"
+            }
+          ],
+          "nickname": "Api::V1::Scenarios#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/scenarios",
+      "operations": [
+        {
+          "summary": "Create new Scenario",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "name",
+              "type": "string",
+              "description": "Name",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Scenarios#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/scenarios/{id}",
+      "operations": [
+        {
+          "summary": "Show Scenario content",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Scenario ID",
+              "required": false
+            }
+          ],
+          "nickname": "Api::V1::Scenarios#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/scenarios/{id}",
+      "operations": [
+        {
+          "summary": "Update Scenario",
+          "notes": "Update Scenario",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "name",
+              "type": "string",
+              "description": "Name",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Scenarios#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/scenarios/{id}",
+      "operations": [
+        {
+          "summary": "Deletes an existing Scenario",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Scenario ID",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Scenarios#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

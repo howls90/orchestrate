@@ -1,0 +1,43 @@
+{
+  "apiVersion": "v1",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "apis": [
+    {
+      "path": "/apidocs/api/v1/rrhs.{format}",
+      "description": "Radio Remote Heads Management"
+    },
+    {
+      "path": "/apidocs/api/v1/scenarios.{format}",
+      "description": "Area of coverage"
+    },
+    {
+      "path": "/apidocs/api/v1/pops.{format}",
+      "description": "Point of Presence Management"
+    },
+    {
+      "path": "/apidocs/api/v1/scripts.{format}",
+      "description": "Provision scripts Management"
+    },
+    {
+      "path": "/apidocs/api/v1/vnfs.{format}",
+      "description": "VNF Management"
+    },
+    {
+      "path": "/apidocs/api/v1/network_services.{format}",
+      "description": "Network Services Management"
+    },
+    {
+      "path": "/apidocs/api/v1/alarms.{format}",
+      "description": "Alarms Management"
+    }
+  ],
+  "authorizations": null,
+  "info": {
+    "title": "OOCRAN API",
+    "description": "Apidocs for Open Orchestration Cloud Radio Access Network platform. You can find out more about OOCRAN at https://oocran.github.io.",
+    "contact": "oocran.github.io",
+    "license": "Apache 2.0",
+    "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  }
+}

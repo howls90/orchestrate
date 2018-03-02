@@ -1,0 +1,188 @@
+{
+  "apiVersion": "v1",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "pops",
+  "apis": [
+    {
+      "path": "/api/v1/pops",
+      "operations": [
+        {
+          "summary": "Fetches all PoPs",
+          "notes": "This lists all PoPs",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "The request you made is not acceptable"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Request Range Not Satisfiable"
+            }
+          ],
+          "nickname": "Api::V1::Pops#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/pops",
+      "operations": [
+        {
+          "summary": "Create new Point of Presence",
+          "notes": "Create Point of Presence",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "name",
+              "type": "string",
+              "description": "Name",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Pops#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/pops/{id}",
+      "operations": [
+        {
+          "summary": "Show PoP content",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "Pop",
+              "message": "Success"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "PoP id",
+              "required": false
+            }
+          ],
+          "nickname": "Api::V1::Pops#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/pops/{id}",
+      "operations": [
+        {
+          "summary": "Update existing Point of Presence",
+          "notes": "Update Point of Presence",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "name",
+              "type": "string",
+              "description": "Name",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Pops#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/pops/{id}",
+      "operations": [
+        {
+          "summary": "Delete an existing Pop",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "PoP ID",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Pops#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}
