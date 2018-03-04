@@ -5,6 +5,7 @@ class CreatePops < ActiveRecord::Migration[5.1]
       t.string :ip
       t.string :instance
 
+
       t.timestamps
     end
   end

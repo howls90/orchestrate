@@ -35,6 +35,10 @@ class Api::V1::VnfsController < ApplicationController
   swagger_api :create do
     summary "Create new VNF"
     param :form, :name, :string, :requiered, "Name"
+    param :form, :cores, :integer, :requiered, "Cores"
+    param :form, :ram, :integer, :requiered, "RAM"
+    param :form, :disc, :integer, :requiered, "Disc"
+    param :path, :network_service_id, :string, :requiered, "Network Service ID" 
     response :ok
     response :unauthorized
     response :not_acceptable
@@ -97,6 +101,6 @@ class Api::V1::VnfsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vnf_params
-      params.require(:vnf).permit(:name)
+      params.require(:vnf).permit(:name, :cores, :ram, :disc)
     end
 end

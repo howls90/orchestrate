@@ -18,8 +18,12 @@ ActiveRecord::Schema.define(version: 20180224064914) do
 
   create_table "alarms", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
+    t.bigint "network_service_id"
+    t.bigint "vnf_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["network_service_id"], name: "index_alarms_on_network_service_id"
+    t.index ["vnf_id"], name: "index_alarms_on_vnf_id"
   end
 
   create_table "network_services", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -50,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180224064914) do
 
   create_table "scenarios", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,16 +62,30 @@ ActiveRecord::Schema.define(version: 20180224064914) do
   create_table "scripts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "provider"
+    t.text "configuration"
+    t.bigint "vnf_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["vnf_id"], name: "index_scripts_on_vnf_id"
   end
 
   create_table "vnfs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
+    t.text "description"
+    t.integer "cores", null: false
+    t.integer "ram", null: false
+    t.integer "disc", null: false
+    t.string "url_server"
+    t.string "url_monitoring"
+    t.string "url_logging"
+    t.string "status", default: "Shut Down", null: false
+    t.text "command"
     t.bigint "network_service_id"
+    t.bigint "pop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["network_service_id"], name: "index_vnfs_on_network_service_id"
+    t.index ["pop_id"], name: "index_vnfs_on_pop_id"
   end
 
 end

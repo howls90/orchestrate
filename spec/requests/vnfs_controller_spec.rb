@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'VNF API' do
     before(:all) do
+        @pop = Pop.create(name: "pop1", ip: "192.168.1.1", instance: "OpenStack")
         @ns = NetworkService.create(name: "ns1")
-        @vnf = @ns.vnfs.create(name: "vnf", cpu: 1, ram: 1024, disc: 5, status: "Shutdown")
+        @vnf = @ns.vnfs.new(name: "vnf", cores: 1, ram: 1024, disc: 5)
+        disdiscc
     end 
     let(:json) {JSON.parse(response.body)}
     let(:request_header) do 
@@ -21,10 +23,10 @@ RSpec.describe 'VNF API' do
         it 'show request' do
             get "/api/v1/network_services/#{@ns.id}/vnfs/#{@vnf.id}"
             expect(json['name']).to eql("vnf")
-            expect(json['cpu']).to eql(1)
+            expect(json['cores']).to eql(1)
             expect(json['ram']).to eql(1024)
             expect(json['disc']).to eql(5)
-            expect(json['status']).to eql("Shutdown")
+            expect(json['status']).to eql("Shut Down")
         end
     end
 
@@ -37,7 +39,7 @@ RSpec.describe 'VNF API' do
 
     context 'POST #create' do
         it 'create vnf' do
-            params = { name: 'vnf2' }
+            params = { name: 'vnf2', cores: 1, ram: 1025, disc: 5 }
             post "/api/v1/network_services/#{@ns.id}/vnfs", 
                 params: params.to_json, 
                 headers: request_header
