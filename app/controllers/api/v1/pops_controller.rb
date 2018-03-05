@@ -14,7 +14,7 @@ class Api::V1::PopsController < ApplicationController
   # GET /pops
   # GET /pops.json
   def index
-    render json: Pop.all
+      render json: Pop.all.to_json(:include => [:vnfs])
   end
 
   swagger_api :show do
@@ -29,13 +29,15 @@ class Api::V1::PopsController < ApplicationController
   # GET /pops/1
   # GET /pops/1.json
   def show
-    render json: @pop
+      render json: @pop.to_json(:include => [:vnfs])
   end
 
   swagger_api :create do
     summary "Create new Point of Presence"
     notes "Create Point of Presence"
     param :form, :name, :string, :required, "Name"
+    param :form, :ip, :string, :required, "Ip"
+    param :form, :instance, :string, :required, "Instance"
     response :ok
     response :unauthorized
     response :not_acceptable

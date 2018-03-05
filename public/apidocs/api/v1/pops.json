@@ -62,6 +62,20 @@
               "type": "string",
               "description": "Name",
               "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "ip",
+              "type": "string",
+              "description": "Ip",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "instance",
+              "type": "string",
+              "description": "Instance",
+              "required": true
             }
           ],
           "nickname": "Api::V1::Pops#create",

@@ -15,7 +15,7 @@ class Api::V1::NetworkServicesController < ApplicationController
   # GET /network_services
   # GET /network_services.json
   def index
-    render json: NetworkService.all
+      render json: NetworkService.all.to_json(:include => [:vnfs])
   end
 
   swagger_api :show do
@@ -29,7 +29,7 @@ class Api::V1::NetworkServicesController < ApplicationController
   # GET /network_services/1
   # GET /network_services/1.json
   def show
-    render json: @network_service
+      render json: @network_service.to_json(:include => [:vnfs])
   end
 
   swagger_api :create do

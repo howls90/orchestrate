@@ -66,6 +66,13 @@
               "type": "string",
               "description": "Name",
               "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "vnf_id",
+              "type": "string",
+              "description": "Vnf Id",
+              "required": true
             }
           ],
           "nickname": "Api::V1::Alarms#create",
@@ -146,6 +153,13 @@
               "type": "string",
               "description": "Name",
               "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "vnf_id",
+              "type": "integer",
+              "description": "VNF ID",
+              "required": true
             }
           ],
           "nickname": "Api::V1::Alarms#update",

@@ -2,7 +2,7 @@ class Vnf < ApplicationRecord
     belongs_to :network_service
     belongs_to :pop
     has_many :scripts, dependent: :delete_all
-#    has_many :alarms
+    has_many :alarms, dependent: :delete_all
 
     validates :name, presence: :true
     validates :cores, presence: :true

@@ -35,6 +35,7 @@ class Api::V1::AlarmsController < ApplicationController
   swagger_api :create do
     summary "Create new Alarm"
     param :form, :name, :string, :required, "Name"
+    param :form, :vnf_id, :string, :required, "Vnf Id"
     response :ok
     response :unauthorized
     response :not_acceptable
@@ -44,6 +45,8 @@ class Api::V1::AlarmsController < ApplicationController
   # POST /alarms.json
   def create
     @alarm = Alarm.new(alarm_params)
+    @vnf = Vnf.find(params[:vnf_id])
+    @vnf.alarms << @alarm
     if @alarm.save
       render json: @alarm
     else
@@ -56,6 +59,7 @@ class Api::V1::AlarmsController < ApplicationController
     notes "Update Alarm"
     param :path, :id, :integer, :required, "Alarm ID"
     param :form, :name, :string, :optional, "Name"
+    param :form, :vnf_id, :integer, :required, "VNF ID"
     response :ok
     response :unauthorized
     response :not_acceptable
@@ -64,6 +68,8 @@ class Api::V1::AlarmsController < ApplicationController
   # PATCH/PUT /alarms/1
   # PATCH/PUT /alarms/1.json
   def update
+    @vnf = Vnf.find(params[:vnf_id])
+    @alarm = @vnf.alarms.find(params[:id])
     if @alarm.update(alarm_params)
     	render json: @alarm
     else

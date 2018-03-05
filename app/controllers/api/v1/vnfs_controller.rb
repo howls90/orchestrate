@@ -15,7 +15,7 @@ class Api::V1::VnfsController < ApplicationController
   # GET /vnfs
   # GET /vnfs.json
   def index
-    render json: Vnf.all
+      render json: Vnf.all.to_json(:include => [:scripts, :alarms])
   end
 
   swagger_api :show do
@@ -29,7 +29,7 @@ class Api::V1::VnfsController < ApplicationController
   # GET /vnfs/1
   # GET /vnfs/1.json
   def show
-      render json: @vnf
+      render json: @vnf.to_json(:include => [:scripts, :alarms])
   end
 
   swagger_api :create do
@@ -38,6 +38,7 @@ class Api::V1::VnfsController < ApplicationController
     param :form, :cores, :integer, :requiered, "Cores"
     param :form, :ram, :integer, :requiered, "RAM"
     param :form, :disc, :integer, :requiered, "Disc"
+    param :form, :pop_id, :string, :requiered, "Pop ID"
     param :path, :network_service_id, :string, :requiered, "Network Service ID" 
     response :ok
     response :unauthorized
@@ -48,7 +49,9 @@ class Api::V1::VnfsController < ApplicationController
   # POST /vnfs.json
   def create
       @network_service = NetworkService.find(params[:network_service_id])
+      @pop = Pop.find(params[:pop_id])
       @vnf = @network_service.vnfs.new(vnf_params)
+      @pop.vnfs << @vnf
     if @vnf.save
         render json: @vnf
     else
@@ -101,6 +104,6 @@ class Api::V1::VnfsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vnf_params
-      params.require(:vnf).permit(:name, :cores, :ram, :disc)
+      params.permit(:name, :cores, :ram, :disc)
     end
 end

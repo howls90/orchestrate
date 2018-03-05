@@ -13,7 +13,7 @@ class Api::V1::ScenariosController < ApplicationController
   end      
   
   def index
-    render json: Scenario.all
+      render json: Scenario.all.to_json(:include => [:rrhs])
   end
 
   swagger_api :show do
@@ -25,7 +25,8 @@ class Api::V1::ScenariosController < ApplicationController
   end
   
   def show
-    render json: @scenario
+      puts @scenario.rrhs
+      render json: @scenario.to_json( :include => [:rrhs] )
   end
 
   swagger_api :create do
