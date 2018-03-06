@@ -1,21 +1,16 @@
 {
-  "apiVersion": "v1",
+  "apiVersion": "testing",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
-  "resourcePath": "scripts",
+  "resourcePath": "pops",
   "apis": [
     {
-      "path": "/api/v1/scripts",
+      "path": "/api/testing/pops",
       "operations": [
         {
-          "summary": "Fetches all Scripts",
-          "notes": "This lists all the Scripts",
+          "summary": "Fetches all PoPs",
+          "notes": "This lists all PoPs",
           "responseMessages": [
-            {
-              "code": 200,
-              "responseModel": null,
-              "message": "Ok"
-            },
             {
               "code": 401,
               "responseModel": null,
@@ -29,20 +24,20 @@
             {
               "code": 500,
               "responseModel": null,
-              "message": "Requested Range Not Satisfiable"
+              "message": "Request Range Not Satisfiable"
             }
           ],
-          "nickname": "Api::V1::Scripts#index",
+          "nickname": "Api::Testing::Pops#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/api/v1/scripts",
+      "path": "/api/testing/pops",
       "operations": [
         {
-          "summary": "Create new Scenario",
-          "notes": "Create Scripts",
+          "summary": "Create new Point of Presence",
+          "notes": "Create Point of Presence",
           "responseMessages": [
             {
               "code": 200,
@@ -70,23 +65,35 @@
             },
             {
               "paramType": "form",
-              "name": "provider",
+              "name": "ip",
               "type": "string",
-              "description": "Provider",
+              "description": "Ip",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "instance",
+              "type": "string",
+              "description": "Instance",
               "required": true
             }
           ],
-          "nickname": "Api::V1::Scripts#create",
+          "nickname": "Api::Testing::Pops#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/api/v1/scripts/{id}",
+      "path": "/api/testing/pops/{id}",
       "operations": [
         {
-          "summary": "Show Script content",
+          "summary": "Show PoP content",
           "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "Pop",
+              "message": "Success"
+            },
             {
               "code": 401,
               "responseModel": null,
@@ -108,21 +115,21 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Script ID",
-              "required": true
+              "description": "PoP id",
+              "required": false
             }
           ],
-          "nickname": "Api::V1::Scripts#show",
+          "nickname": "Api::Testing::Pops#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/api/v1/scripts/{id}",
+      "path": "/api/testing/pops/{id}",
       "operations": [
         {
-          "summary": "Update Script",
-          "notes": "Update Scripts",
+          "summary": "Update existing Point of Presence",
+          "notes": "Update Point of Presence",
           "responseMessages": [
             {
               "code": 200,
@@ -147,25 +154,18 @@
               "type": "string",
               "description": "Name",
               "required": true
-            },
-            {
-              "paramType": "form",
-              "name": "provider",
-              "type": "string",
-              "description": "Provider",
-              "required": true
             }
           ],
-          "nickname": "Api::V1::Scripts#update",
+          "nickname": "Api::Testing::Pops#update",
           "method": "patch"
         }
       ]
     },
     {
-      "path": "/api/v1/scripts/{id}",
+      "path": "/api/testing/pops/{id}",
       "operations": [
         {
-          "summary": "Deletes an existing Script",
+          "summary": "Delete an existing Pop",
           "responseMessages": [
             {
               "code": 200,
@@ -188,11 +188,11 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Script ID",
+              "description": "PoP ID",
               "required": true
             }
           ],
-          "nickname": "Api::V1::Scripts#destroy",
+          "nickname": "Api::Testing::Pops#destroy",
           "method": "delete"
         }
       ]

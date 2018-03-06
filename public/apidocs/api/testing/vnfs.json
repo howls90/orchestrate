@@ -1,11 +1,11 @@
 {
-  "apiVersion": "v1",
+  "apiVersion": "testing",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
   "resourcePath": "vnfs",
   "apis": [
     {
-      "path": "/api/v1/network_services/{network_service_id}/vnfs",
+      "path": "/api/testing/network_services/{network_service_id}/vnfs",
       "operations": [
         {
           "summary": "Fetches all VNFs",
@@ -32,13 +32,13 @@
               "message": "Request Range Not Satisfiable"
             }
           ],
-          "nickname": "Api::V1::Vnfs#index",
+          "nickname": "Api::Testing::Vnfs#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/api/v1/network_services/{network_service_id}/vnfs",
+      "path": "/api/testing/network_services/{network_service_id}/vnfs",
       "operations": [
         {
           "summary": "Create new VNF",
@@ -103,13 +103,13 @@
               "required": false
             }
           ],
-          "nickname": "Api::V1::Vnfs#create",
+          "nickname": "Api::Testing::Vnfs#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/api/v1/network_services/{network_service_id}/vnfs/{id}",
+      "path": "/api/testing/network_services/{network_service_id}/vnfs/{id}",
       "operations": [
         {
           "summary": "Show VNF content",
@@ -139,13 +139,13 @@
               "required": false
             }
           ],
-          "nickname": "Api::V1::Vnfs#show",
+          "nickname": "Api::Testing::Vnfs#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/api/v1/network_services/{network_service_id}/vnfs/{id}",
+      "path": "/api/testing/network_services/{network_service_id}/vnfs/{id}",
       "operations": [
         {
           "summary": "Update a existed VNF",
@@ -181,13 +181,13 @@
               "required": false
             }
           ],
-          "nickname": "Api::V1::Vnfs#update",
+          "nickname": "Api::Testing::Vnfs#update",
           "method": "patch"
         }
       ]
     },
     {
-      "path": "/api/v1/network_services/{network_service_id}/vnfs/{id}",
+      "path": "/api/testing/network_services/{network_service_id}/vnfs/{id}",
       "operations": [
         {
           "summary": "Delete VNF",
@@ -217,7 +217,7 @@
               "required": true
             }
           ],
-          "nickname": "Api::V1::Vnfs#destroy",
+          "nickname": "Api::Testing::Vnfs#destroy",
           "method": "delete"
         }
       ]

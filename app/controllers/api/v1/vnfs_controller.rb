@@ -1,48 +1,16 @@
 class Api::V1::VnfsController < ApplicationController
   before_action :set_vnf, only: [:show, :edit, :update, :destroy]
 
-  swagger_controller :Vnfs, "VNF Management"
-
-  swagger_api :index do
-    summary "Fetches all VNFs"
-    notes "This lists all VNFs"
-    response :ok
-    response :unauthorized
-    response :not_acceptable, "The request you made is not acceptable"
-    response :request_range_not_satisfiable
-  end
-
   # GET /vnfs
   # GET /vnfs.json
   def index
       render json: Vnf.all.to_json(:include => [:scripts, :alarms])
   end
 
-  swagger_api :show do
-    summary "Show VNF content"
-    param :path, :id, :integer, :requiere, "VNF ID"
-    response :unauthorized
-    response :not_acceptable
-    response :not_found
-  end
-
   # GET /vnfs/1
   # GET /vnfs/1.json
   def show
       render json: @vnf.to_json(:include => [:scripts, :alarms])
-  end
-
-  swagger_api :create do
-    summary "Create new VNF"
-    param :form, :name, :string, :requiered, "Name"
-    param :form, :cores, :integer, :requiered, "Cores"
-    param :form, :ram, :integer, :requiered, "RAM"
-    param :form, :disc, :integer, :requiered, "Disc"
-    param :form, :pop_id, :string, :requiered, "Pop ID"
-    param :path, :network_service_id, :string, :requiered, "Network Service ID" 
-    response :ok
-    response :unauthorized
-    response :not_acceptable
   end
 
   # POST /vnfs
@@ -59,16 +27,6 @@ class Api::V1::VnfsController < ApplicationController
     end
   end
 
-  swagger_api :update do |api|
-    summary "Update a existed VNF"
-    notes "Notes for updating a existed VNF"
-    param :path, :id, :integer, :optional, "VNF ID"
-    response :ok
-    response :unauthorized
-    response :not_acceptable, "The request you made is not acceptable"
-    response :unprocessable_entity
-  end
-
   # PATCH/PUT /vnfs/1
   # PATCH/PUT /vnfs/1.json
   def update
@@ -79,14 +37,6 @@ class Api::V1::VnfsController < ApplicationController
     else
         render json: {status: "ERROR", data: @vnf.error}
     end
-  end
-
-  swagger_api :destroy do
-    summary "Delete VNF"
-    param :path, :id, :integer, :required, "VNF ID"
-    response :ok
-    response :unauthorized
-    response :not_found
   end
 
   # DELETE /vnfs/1

@@ -1,10 +1,10 @@
 class Swagger::Docs::Config
-      def self.base_api_controller; ApplicationController end
+      def self.base_api_controller; TestingController end
       def self.transform_path(path, api_version); "apidocs/#{path}" end
 end
 
 Swagger::Docs::Config.register_apis({
-  "v1" => {
+  "testing" => {
     :api_extension_type => nil,
     :api_file_path => "public/apidocs/",
     :base_path => "http://localhost:3000",
@@ -12,7 +12,7 @@ Swagger::Docs::Config.register_apis({
     :formatting => :pretty,
     :camelize_model_properties => false,
     :controller_base_path => "",
-    :parent_controller => ApplicationController,
+    :parent_controller => TestingController,
     :attributes => {
       :info => {
         "title" => "OOCRAN API",

@@ -1,11 +1,11 @@
 {
-  "apiVersion": "v1",
+  "apiVersion": "testing",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
   "resourcePath": "rrhs",
   "apis": [
     {
-      "path": "/api/v1/scenarios/{scenario_id}/rrhs",
+      "path": "/api/testing/scenarios/{scenario_id}/rrhs",
       "operations": [
         {
           "summary": "Fetches all RRHs",
@@ -27,13 +27,13 @@
               "message": "Requested Range Not Satisfiable"
             }
           ],
-          "nickname": "Api::V1::Rrhs#index",
+          "nickname": "Api::Testing::Rrhs#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/api/v1/scenarios/{scenario_id}/rrhs",
+      "path": "/api/testing/scenarios/{scenario_id}/rrhs",
       "operations": [
         {
           "summary": "Create new Radio Remote Head",
@@ -99,13 +99,13 @@
               "required": true
             }
           ],
-          "nickname": "Api::V1::Rrhs#create",
+          "nickname": "Api::Testing::Rrhs#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/api/v1/scenarios/{scenario_id}/rrhs/{id}",
+      "path": "/api/testing/scenarios/{scenario_id}/rrhs/{id}",
       "operations": [
         {
           "summary": "Show RRH content",
@@ -140,13 +140,13 @@
               "required": true
             }
           ],
-          "nickname": "Api::V1::Rrhs#show",
+          "nickname": "Api::Testing::Rrhs#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/api/v1/scenarios/{scenario_id}/rrhs/{id}",
+      "path": "/api/testing/scenarios/{scenario_id}/rrhs/{id}",
       "operations": [
         {
           "summary": "Update existing Radio Remote Head",
@@ -219,13 +219,13 @@
               "required": true
             }
           ],
-          "nickname": "Api::V1::Rrhs#update",
+          "nickname": "Api::Testing::Rrhs#update",
           "method": "patch"
         }
       ]
     },
     {
-      "path": "/api/v1/scenarios/{scenario_id}/rrhs/{id}",
+      "path": "/api/testing/scenarios/{scenario_id}/rrhs/{id}",
       "operations": [
         {
           "summary": "Deletes an existing Radio Remote Head",
@@ -255,7 +255,7 @@
               "required": true
             }
           ],
-          "nickname": "Api::V1::Rrhs#destroy",
+          "nickname": "Api::Testing::Rrhs#destroy",
           "method": "delete"
         }
       ]

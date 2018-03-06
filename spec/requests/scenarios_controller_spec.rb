@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Scenario API' do
     before(:all) do
-        Scenario.delete_all
-        Rrh.delete_all
         @scenario = Scenario.create(name: "eetac")
         @rrh = Rrh.create(ip: "192.168.1.2", version: '1.2', model: 'usrp', latitude: -10.4, longitude: -50, scenario_id: @scenario.id)
     end 

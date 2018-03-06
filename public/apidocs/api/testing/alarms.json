@@ -1,11 +1,11 @@
 {
-  "apiVersion": "v1",
+  "apiVersion": "testing",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
   "resourcePath": "alarms",
   "apis": [
     {
-      "path": "/api/v1/alarms",
+      "path": "/api/testing/alarms",
       "operations": [
         {
           "summary": "Fetches all Alarms",
@@ -32,13 +32,13 @@
               "message": "Request Range Not Satisfiable"
             }
           ],
-          "nickname": "Api::V1::Alarms#index",
+          "nickname": "Api::Testing::Alarms#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/api/v1/alarms",
+      "path": "/api/testing/alarms",
       "operations": [
         {
           "summary": "Create new Alarm",
@@ -75,13 +75,13 @@
               "required": true
             }
           ],
-          "nickname": "Api::V1::Alarms#create",
+          "nickname": "Api::Testing::Alarms#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/api/v1/alarms/{id}",
+      "path": "/api/testing/alarms/{id}",
       "operations": [
         {
           "summary": "Show Alarm content",
@@ -111,13 +111,13 @@
               "required": true
             }
           ],
-          "nickname": "Api::V1::Alarms#show",
+          "nickname": "Api::Testing::Alarms#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/api/v1/alarms/{id}",
+      "path": "/api/testing/alarms/{id}",
       "operations": [
         {
           "summary": "Update existing Alarm",
@@ -162,13 +162,13 @@
               "required": true
             }
           ],
-          "nickname": "Api::V1::Alarms#update",
+          "nickname": "Api::Testing::Alarms#update",
           "method": "patch"
         }
       ]
     },
     {
-      "path": "/api/v1/alarms/{id}",
+      "path": "/api/testing/alarms/{id}",
       "operations": [
         {
           "summary": "Delete Alarm",
@@ -198,7 +198,7 @@
               "required": true
             }
           ],
-          "nickname": "Api::V1::Alarms#destroy",
+          "nickname": "Api::Testing::Alarms#destroy",
           "method": "delete"
         }
       ]

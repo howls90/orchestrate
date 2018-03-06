@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "Rrhs API" do
     before(:all) do
-        Scenario.delete_all
-        Rrh.delete_all
         @scenario = Scenario.create(name: "eetac")
         @rrh = @scenario.rrhs.create(ip: "192.168.1.2", 
                                     version: '1.2', 

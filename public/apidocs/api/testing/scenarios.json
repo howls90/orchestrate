@@ -1,16 +1,21 @@
 {
-  "apiVersion": "v1",
+  "apiVersion": "testing",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
-  "resourcePath": "pops",
+  "resourcePath": "scenarios",
   "apis": [
     {
-      "path": "/api/v1/pops",
+      "path": "/api/testing/scenarios",
       "operations": [
         {
-          "summary": "Fetches all PoPs",
-          "notes": "This lists all PoPs",
+          "summary": "Fetches all Scenarios",
+          "notes": "This lists all Scenarios",
           "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
             {
               "code": 401,
               "responseModel": null,
@@ -24,20 +29,19 @@
             {
               "code": 500,
               "responseModel": null,
-              "message": "Request Range Not Satisfiable"
+              "message": "Requested Range Not Satisfiable"
             }
           ],
-          "nickname": "Api::V1::Pops#index",
+          "nickname": "Api::Testing::Scenarios#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/api/v1/pops",
+      "path": "/api/testing/scenarios",
       "operations": [
         {
-          "summary": "Create new Point of Presence",
-          "notes": "Create Point of Presence",
+          "summary": "Create new Scenario",
           "responseMessages": [
             {
               "code": 200,
@@ -62,38 +66,19 @@
               "type": "string",
               "description": "Name",
               "required": true
-            },
-            {
-              "paramType": "form",
-              "name": "ip",
-              "type": "string",
-              "description": "Ip",
-              "required": true
-            },
-            {
-              "paramType": "form",
-              "name": "instance",
-              "type": "string",
-              "description": "Instance",
-              "required": true
             }
           ],
-          "nickname": "Api::V1::Pops#create",
+          "nickname": "Api::Testing::Scenarios#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/api/v1/pops/{id}",
+      "path": "/api/testing/scenarios/{id}",
       "operations": [
         {
-          "summary": "Show PoP content",
+          "summary": "Show Scenario content",
           "responseMessages": [
-            {
-              "code": 200,
-              "responseModel": "Pop",
-              "message": "Success"
-            },
             {
               "code": 401,
               "responseModel": null,
@@ -115,21 +100,21 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "PoP id",
+              "description": "Scenario ID",
               "required": false
             }
           ],
-          "nickname": "Api::V1::Pops#show",
+          "nickname": "Api::Testing::Scenarios#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/api/v1/pops/{id}",
+      "path": "/api/testing/scenarios/{id}",
       "operations": [
         {
-          "summary": "Update existing Point of Presence",
-          "notes": "Update Point of Presence",
+          "summary": "Update Scenario",
+          "notes": "Update Scenario",
           "responseMessages": [
             {
               "code": 200,
@@ -156,16 +141,16 @@
               "required": true
             }
           ],
-          "nickname": "Api::V1::Pops#update",
+          "nickname": "Api::Testing::Scenarios#update",
           "method": "patch"
         }
       ]
     },
     {
-      "path": "/api/v1/pops/{id}",
+      "path": "/api/testing/scenarios/{id}",
       "operations": [
         {
-          "summary": "Delete an existing Pop",
+          "summary": "Deletes an existing Scenario",
           "responseMessages": [
             {
               "code": 200,
@@ -188,11 +173,11 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "PoP ID",
+              "description": "Scenario ID",
               "required": true
             }
           ],
-          "nickname": "Api::V1::Pops#destroy",
+          "nickname": "Api::Testing::Scenarios#destroy",
           "method": "delete"
         }
       ]

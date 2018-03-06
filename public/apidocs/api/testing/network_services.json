@@ -1,15 +1,15 @@
 {
-  "apiVersion": "v1",
+  "apiVersion": "testing",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
-  "resourcePath": "scenarios",
+  "resourcePath": "network_services",
   "apis": [
     {
-      "path": "/api/v1/scenarios",
+      "path": "/api/testing/network_services",
       "operations": [
         {
-          "summary": "Fetches all Scenarios",
-          "notes": "This lists all Scenarios",
+          "summary": "Fetches all Network Services",
+          "notes": "This lists all Network Services",
           "responseMessages": [
             {
               "code": 200,
@@ -29,19 +29,19 @@
             {
               "code": 500,
               "responseModel": null,
-              "message": "Requested Range Not Satisfiable"
+              "message": "Request Range Not Satisfiable"
             }
           ],
-          "nickname": "Api::V1::Scenarios#index",
+          "nickname": "Api::Testing::NetworkServices#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/api/v1/scenarios",
+      "path": "/api/testing/network_services",
       "operations": [
         {
-          "summary": "Create new Scenario",
+          "summary": "Create new Network Service",
           "responseMessages": [
             {
               "code": 200,
@@ -65,19 +65,19 @@
               "name": "name",
               "type": "string",
               "description": "Name",
-              "required": true
+              "required": false
             }
           ],
-          "nickname": "Api::V1::Scenarios#create",
+          "nickname": "Api::Testing::NetworkServices#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/api/v1/scenarios/{id}",
+      "path": "/api/testing/network_services/{id}",
       "operations": [
         {
-          "summary": "Show Scenario content",
+          "summary": "Show Network Service content",
           "responseMessages": [
             {
               "code": 401,
@@ -100,57 +100,20 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Scenario ID",
+              "description": "Network Service ID",
               "required": false
             }
           ],
-          "nickname": "Api::V1::Scenarios#show",
+          "nickname": "Api::Testing::NetworkServices#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/api/v1/scenarios/{id}",
+      "path": "/api/testing/network_services/{id}",
       "operations": [
         {
-          "summary": "Update Scenario",
-          "notes": "Update Scenario",
-          "responseMessages": [
-            {
-              "code": 200,
-              "responseModel": null,
-              "message": "Ok"
-            },
-            {
-              "code": 401,
-              "responseModel": null,
-              "message": "Unauthorized"
-            },
-            {
-              "code": 406,
-              "responseModel": null,
-              "message": "Not Acceptable"
-            }
-          ],
-          "parameters": [
-            {
-              "paramType": "form",
-              "name": "name",
-              "type": "string",
-              "description": "Name",
-              "required": true
-            }
-          ],
-          "nickname": "Api::V1::Scenarios#update",
-          "method": "patch"
-        }
-      ]
-    },
-    {
-      "path": "/api/v1/scenarios/{id}",
-      "operations": [
-        {
-          "summary": "Deletes an existing Scenario",
+          "summary": "Update Network Service",
           "responseMessages": [
             {
               "code": 200,
@@ -173,11 +136,54 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Scenario ID",
+              "description": "Network Service ID",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "name",
+              "type": "string",
+              "description": "Name",
+              "required": false
+            }
+          ],
+          "nickname": "Api::Testing::NetworkServices#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/api/testing/network_services/{id}",
+      "operations": [
+        {
+          "summary": "Delete Network Service",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Ok"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Network Service ID",
               "required": true
             }
           ],
-          "nickname": "Api::V1::Scenarios#destroy",
+          "nickname": "Api::Testing::NetworkServices#destroy",
           "method": "delete"
         }
       ]

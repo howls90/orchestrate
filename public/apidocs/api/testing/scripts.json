@@ -1,15 +1,15 @@
 {
-  "apiVersion": "v1",
+  "apiVersion": "testing",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
-  "resourcePath": "network_services",
+  "resourcePath": "scripts",
   "apis": [
     {
-      "path": "/api/v1/network_services",
+      "path": "/api/testing/scripts",
       "operations": [
         {
-          "summary": "Fetches all Network Services",
-          "notes": "This lists all Network Services",
+          "summary": "Fetches all Scripts",
+          "notes": "This lists all the Scripts",
           "responseMessages": [
             {
               "code": 200,
@@ -29,19 +29,20 @@
             {
               "code": 500,
               "responseModel": null,
-              "message": "Request Range Not Satisfiable"
+              "message": "Requested Range Not Satisfiable"
             }
           ],
-          "nickname": "Api::V1::NetworkServices#index",
+          "nickname": "Api::Testing::Scripts#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/api/v1/network_services",
+      "path": "/api/testing/scripts",
       "operations": [
         {
-          "summary": "Create new Network Service",
+          "summary": "Create new Scenario",
+          "notes": "Create Scripts",
           "responseMessages": [
             {
               "code": 200,
@@ -65,19 +66,26 @@
               "name": "name",
               "type": "string",
               "description": "Name",
-              "required": false
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "provider",
+              "type": "string",
+              "description": "Provider",
+              "required": true
             }
           ],
-          "nickname": "Api::V1::NetworkServices#create",
+          "nickname": "Api::Testing::Scripts#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/api/v1/network_services/{id}",
+      "path": "/api/testing/scripts/{id}",
       "operations": [
         {
-          "summary": "Show Network Service content",
+          "summary": "Show Script content",
           "responseMessages": [
             {
               "code": 401,
@@ -100,20 +108,21 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Network Service ID",
-              "required": false
+              "description": "Script ID",
+              "required": true
             }
           ],
-          "nickname": "Api::V1::NetworkServices#show",
+          "nickname": "Api::Testing::Scripts#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/api/v1/network_services/{id}",
+      "path": "/api/testing/scripts/{id}",
       "operations": [
         {
-          "summary": "Update Network Service",
+          "summary": "Update Script",
+          "notes": "Update Scripts",
           "responseMessages": [
             {
               "code": 200,
@@ -126,37 +135,37 @@
               "message": "Unauthorized"
             },
             {
-              "code": 404,
+              "code": 406,
               "responseModel": null,
-              "message": "Not Found"
+              "message": "Not Acceptable"
             }
           ],
           "parameters": [
-            {
-              "paramType": "path",
-              "name": "id",
-              "type": "integer",
-              "description": "Network Service ID",
-              "required": false
-            },
             {
               "paramType": "form",
               "name": "name",
               "type": "string",
               "description": "Name",
-              "required": false
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "provider",
+              "type": "string",
+              "description": "Provider",
+              "required": true
             }
           ],
-          "nickname": "Api::V1::NetworkServices#update",
+          "nickname": "Api::Testing::Scripts#update",
           "method": "patch"
         }
       ]
     },
     {
-      "path": "/api/v1/network_services/{id}",
+      "path": "/api/testing/scripts/{id}",
       "operations": [
         {
-          "summary": "Delete Network Service",
+          "summary": "Deletes an existing Script",
           "responseMessages": [
             {
               "code": 200,
@@ -179,11 +188,11 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Network Service ID",
+              "description": "Script ID",
               "required": true
             }
           ],
-          "nickname": "Api::V1::NetworkServices#destroy",
+          "nickname": "Api::Testing::Scripts#destroy",
           "method": "delete"
         }
       ]

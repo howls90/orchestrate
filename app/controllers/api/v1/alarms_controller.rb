@@ -1,44 +1,16 @@
 class Api::V1::AlarmsController < ApplicationController
   before_action :set_alarm, only: [:show, :update, :destroy]
 
-  swagger_controller :Alarms, "Alarms Management"
-
-  swagger_api :index do
-    summary "Fetches all Alarms"
-    notes "This lists all Alarms"
-    response :ok
-    response :unauthorized
-    response :not_acceptable, "The request you made is not acceptable"
-    response :request_range_not_satisfiable
-  end
-
   # GET /alarms
   # GET /alarms.json
   def index
     render json: Alarm.all
   end
 
-  swagger_api :show do
-    summary "Show Alarm content"
-    param :path, :id, :integer, :required, "Alarm ID"
-    response :unauthorized
-    response :not_acceptable
-    response :not_found
-  end
-
   # GET /alarms/1
   # GET /alarms/1.json
   def show
     render json: @alarm
-  end
-
-  swagger_api :create do
-    summary "Create new Alarm"
-    param :form, :name, :string, :required, "Name"
-    param :form, :vnf_id, :string, :required, "Vnf Id"
-    response :ok
-    response :unauthorized
-    response :not_acceptable
   end
 
   # POST /alarms
@@ -54,17 +26,6 @@ class Api::V1::AlarmsController < ApplicationController
     end
   end
 
-  swagger_api :update do
-    summary "Update existing Alarm"
-    notes "Update Alarm"
-    param :path, :id, :integer, :required, "Alarm ID"
-    param :form, :name, :string, :optional, "Name"
-    param :form, :vnf_id, :integer, :required, "VNF ID"
-    response :ok
-    response :unauthorized
-    response :not_acceptable
-  end
-
   # PATCH/PUT /alarms/1
   # PATCH/PUT /alarms/1.json
   def update
@@ -75,14 +36,6 @@ class Api::V1::AlarmsController < ApplicationController
     else
     	render json: {status: 'ERROR', data: @alarm.errors}
     end
-  end
-
-  swagger_api :destroy do
-    summary "Delete Alarm"
-    param :path, :id, :integer, :required, "Alarm ID"
-    response :ok
-    response :unauthorized
-    response :not_found
   end
 
   # DELETE /alarms/1

@@ -1,46 +1,16 @@
 class Api::V1::PopsController < ApplicationController
   before_action :set_pop, only: [:show, :edit, :update, :destroy]
 
-  swagger_controller :Pop, "Point of Presence Management"
-
-  swagger_api :index do
-      summary "Fetches all PoPs"
-      notes "This lists all PoPs"
-      response :unauthorized
-      response :not_acceptable, "The request you made is not acceptable"
-      response :request_range_not_satisfiable
-  end
-
   # GET /pops
   # GET /pops.json
   def index
       render json: Pop.all.to_json(:include => [:vnfs])
   end
 
-  swagger_api :show do
-    summary "Show PoP content"
-    param :path, :id, :integer, :optional, "PoP id"
-    response :ok, "Success", :Pop
-    response :unauthorized
-    response :not_acceptable
-    response :not_found
-  end
-
   # GET /pops/1
   # GET /pops/1.json
   def show
       render json: @pop.to_json(:include => [:vnfs])
-  end
-
-  swagger_api :create do
-    summary "Create new Point of Presence"
-    notes "Create Point of Presence"
-    param :form, :name, :string, :required, "Name"
-    param :form, :ip, :string, :required, "Ip"
-    param :form, :instance, :string, :required, "Instance"
-    response :ok
-    response :unauthorized
-    response :not_acceptable
   end
 
   # POST /pops
@@ -54,15 +24,6 @@ class Api::V1::PopsController < ApplicationController
     end
   end
 
-  swagger_api :update do
-    summary "Update existing Point of Presence"
-    notes "Update Point of Presence"
-    param :form, :name, :string, :required, "Name"
-    response :ok
-    response :unauthorized
-    response :not_acceptable
-  end
-
   # PATCH/PUT /pops/1
   # PATCH/PUT /pops/1.json
   def update
@@ -71,14 +32,6 @@ class Api::V1::PopsController < ApplicationController
     else
       render json: {status: 'ERROR', data: @pop.errors}
     end
-  end
-
-  swagger_api :destroy do
-    summary "Delete an existing Pop"
-    param :path, :id, :integer, :required, "PoP ID"
-    response :ok
-    response :unauthorized
-    response :not_found
   end
 
   # DELETE /pops/1
