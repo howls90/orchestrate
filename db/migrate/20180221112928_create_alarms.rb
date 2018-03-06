@@ -1,9 +1,10 @@
 class CreateAlarms < ActiveRecord::Migration[5.1]
   def change
-    create_table :alarms, id: :uuid do |t|
+    create_table :alarms, id: false do |t|
+      t.primary_key :id, :uuid, :default => 'uuid_generate_v1()'
       t.string :name      
-      t.belongs_to :vnf, index: true  
-
+      t.uuid :vnf_id  
+      t.uuid :user_id
       t.timestamps
     end
   end

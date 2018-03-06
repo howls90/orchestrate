@@ -3,6 +3,7 @@ class Vnf < ApplicationRecord
     belongs_to :pop
     has_many :scripts, dependent: :delete_all
     has_many :alarms, dependent: :delete_all
+    belongs_to :user
 
     validates :name, presence: :true
     validates :cores, presence: :true

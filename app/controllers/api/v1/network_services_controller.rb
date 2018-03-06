@@ -4,7 +4,7 @@ class Api::V1::NetworkServicesController < ApplicationController
   # GET /network_services
   # GET /network_services.json
   def index
-      render json: NetworkService.all.to_json(:include => [:vnfs])
+      render json: NetworkService.where(user_id: @current_user).to_json(:include => [:vnfs])
   end
 
   # GET /network_services/1

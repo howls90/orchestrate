@@ -1,6 +1,7 @@
 class CreateVnfs < ActiveRecord::Migration[5.1]
   def change
-    create_table :vnfs, id: :uuid do |t|
+    create_table :vnfs, id: false do |t|
+      t.primary_key :id, :uuid, :default => 'uuid_generate_v1()'
       t.string :name
       t.text :description
       t.integer :cores, null: false
@@ -11,8 +12,9 @@ class CreateVnfs < ActiveRecord::Migration[5.1]
       t.string  :url_logging
       t.string  :status, null: false, default: "Shut Down"
       t.text    :command
-      t.belongs_to :network_service, index: true
-      t.belongs_to :pop, index: true
+      t.uuid :network_service_id
+      t.uuid :pop_id
+      t.uuid :user_id
 
       t.timestamps
     end
