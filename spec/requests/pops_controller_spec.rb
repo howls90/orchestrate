@@ -1,32 +1,46 @@
 require 'rails_helper'
+require './spec/support/auth_helpers'
+
+RSpec.configure do |c|
+    c.include AuthHelpers
+end
 
 RSpec.describe 'pop API' do
     before(:all) do
-        Pop.delete_all
+        @jwt = auth()
         @pop = Pop.create(name: "eetac", ip: "192.168.1.5", instance: "OpenStack")
+    end
+    after :all do
+       @pop.destroy
+       @user.destroy
     end 
     let(:json) {JSON.parse(response.body)}
     let(:request_header) do 
-        {'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json'}
+        {'CONTENT_TYPE' => 'application/json', 
+         'ACCEPT' => 'application/json',
+         "Authorization" => "Authorization: #{@jwt}" }
     end
 
     context "GET #index" do
         it 'return all pops' do
-            get '/api/v1/pops'
-            expect(json[0]['name']).to eql('eetac')
+            get '/api/v1/pops',
+            headers: { "Authorization" => "Authorization: #{@jwt}" }
+            expect(json[0]['id']).to eql(@pop.id)
         end
     end
 
     context "GET #show" do
         it 'show request' do
-            get "/api/v1/pops/#{@pop.id}"
-            expect(json['name']).to eql('eetac')
+            get "/api/v1/pops/#{@pop.id}",
+            headers: { "Authorization" => "Authorization: #{@jwt}" }
+            expect(json['name']).to eql(@pop.name)
         end
     end
 
     context 'GET #destroy' do
         it 'destroy pop' do
-            delete "/api/v1/pops/#{@pop.id}"
+            delete "/api/v1/pops/#{@pop.id}",
+            headers: { "Authorization" => "Authorization: #{@jwt}" }
             expect(json['message']).to eql('Pop deleted')
         end
     end

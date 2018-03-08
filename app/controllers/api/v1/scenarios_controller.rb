@@ -2,12 +2,10 @@ class Api::V1::ScenariosController < ApplicationController
   before_action :set_scenario, only: [:show, :destroy, :update]
   
   def index
-      puts "current user: #{@current_user.email}"
       render json: Scenario.all.to_json(:include => [:rrhs])
   end
 
   def show
-      puts @scenario.rrhs
       render json: @scenario.to_json( :include => [:rrhs] )
   end
 

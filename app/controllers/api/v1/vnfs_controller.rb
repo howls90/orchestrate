@@ -4,13 +4,13 @@ class Api::V1::VnfsController < ApplicationController
   # GET /vnfs
   # GET /vnfs.json
   def index
-      render json: Vnf.all.to_json(:include => [:scripts, :alarms])
+      render json: Vnf.all
   end
 
   # GET /vnfs/1
   # GET /vnfs/1.json
   def show
-      render json: @vnf.to_json(:include => [:scripts, :alarms])
+      render json: @vnf
   end
 
   # POST /vnfs
@@ -19,6 +19,7 @@ class Api::V1::VnfsController < ApplicationController
       @network_service = NetworkService.find(params[:network_service_id])
       @pop = Pop.find(params[:pop_id])
       @vnf = @network_service.vnfs.new(vnf_params)
+      @current_user.vnfs << @vnf
       @pop.vnfs << @vnf
     if @vnf.save
         render json: @vnf

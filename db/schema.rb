@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 20180224064914) do
     t.string "name"
     t.string "provider"
     t.text "configuration"
-    t.uuid "vnf_id"
     t.uuid "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

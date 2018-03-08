@@ -4,7 +4,7 @@ class Api::V1::AlarmsController < ApplicationController
   # GET /alarms
   # GET /alarms.json
   def index
-    render json: Alarm.all
+      render json: Alarm.all
   end
 
   # GET /alarms/1
@@ -16,7 +16,7 @@ class Api::V1::AlarmsController < ApplicationController
   # POST /alarms
   # POST /alarms.json
   def create
-    @alarm = Alarm.new(alarm_params)
+    @alarm = @current_user.alarms.new(alarm_params)
     @vnf = Vnf.find(params[:vnf_id])
     @vnf.alarms << @alarm
     if @alarm.save

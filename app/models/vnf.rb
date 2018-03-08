@@ -1,7 +1,7 @@
 class Vnf < ApplicationRecord
     belongs_to :network_service
     belongs_to :pop
-    has_many :scripts, dependent: :delete_all
+    #has_many :scripts, dependent: :delete_all
     has_many :alarms, dependent: :delete_all
     belongs_to :user
 

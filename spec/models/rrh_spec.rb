@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Rrh, type: :model do
     before :all do
-        Scenario.create(name: 'eetac')
+        @scenario = Scenario.create(name: 'eetac')
+    end
+    after :all do
+        @scenario.destroy
     end
 
     context 'ensure parameters' do
@@ -42,8 +45,8 @@ RSpec.describe Rrh, type: :model do
         end
 
         it 'save correctly' do
-            rrh = Rrh.new(ip: '192.168.1.4', model: '1.2', version: '1.2', latitude: -10.4, longitude: -50, scenario_id: 1).save
-            expect(rrh).to eql(true)
+            rrh = @scenario.rrhs.create(ip: '192.168.1.4', model: '1.2', version: '1.2', latitude: -10.4, longitude: -50)
+            expect(rrh['id']).to eql(rrh.id)
         end
     end
 end

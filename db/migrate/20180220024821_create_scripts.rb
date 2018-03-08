@@ -5,7 +5,7 @@ class CreateScripts < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :provider
       t.text   :configuration
-      t.uuid :vnf_id
+      #t.uuid :vnf_id
       t.uuid :user_id
       t.timestamps
     end

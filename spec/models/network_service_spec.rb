@@ -1,19 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe NetworkService, type: :model do
+    before :all do
+        @user = User.create(email: "oocran@example.com", password: "oocran", password_confirmation: "oocran")
+        @pop = Pop.create(name: "pop", ip: "ip", instance: "AWS")
+        @vnf = @user.vnfs.new(name: 'vnf', cores: 1, ram: 1024, disc: 5)
+    end
+    after :all do
+        @user.destroy
+        @pop.destroy
+        @vnf.destroy
+    end
     context 'ensure parameters' do
         it 'ensure name' do
-            @ns = NetworkService.new().save
-            expect(@ns).to eql(false)
+            @ns = @user.network_services.new()
+            expect(@ns.save).to eql(false)
         end
 
         it 'ensure add vnf' do
-            @pop = Pop.create(name: "pop1", ip: "192.168.1.3", instance: "AWS")
-            @ns = NetworkService.create(name: "ns1")
-            @vnf = Vnf.new(name: "ee", cores: 1, ram: 1024, disc: 5)
+            @ns = @user.network_services.create(name: "ns1")
             @ns.vnfs << @vnf
             @pop.vnfs << @vnf
-            expect(@ns.vnfs.count).to eql(1)
+            expect(@vnf.save).to eql(true)
         end
     end
 end
