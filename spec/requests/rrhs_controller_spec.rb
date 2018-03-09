@@ -10,10 +10,10 @@ RSpec.describe "Rrhs API" do
         @jwt = auth()
         @scenario = Scenario.create(name: "eetac")
         @rrh = @scenario.rrhs.create(ip: "192.168.1.2", 
-                                    version: '1.2', 
-                                    model: 'usrp', 
-                                    latitude: -10.4, 
-                                    longitude: -50.0)
+                                     version: '1.2', 
+                                     model: 'usrp', 
+                                     latitude: -10.4, 
+                                     longitude: -50.0)
     end
     after :all do
        @scenario.destroy

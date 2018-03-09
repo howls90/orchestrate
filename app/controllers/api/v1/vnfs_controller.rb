@@ -38,6 +38,27 @@ class Api::V1::VnfsController < ApplicationController
     else
         render json: {status: "ERROR", data: @vnf.error}
     end
+end
+
+  def destroy
+    @rrh.destroy
+    if @vnf.save
+        render json: @vnf
+    else
+        render json: {status: 'ERROR', data: @vnf.errors}
+    end
+  end
+
+  # PATCH/PUT /vnfs/1
+  # PATCH/PUT /vnfs/1.json
+  def update
+    @ns = NetworkService.find(params[:network_service_id])    
+    @vnf = @ns.vnfs.find(params[:id])  
+    if @vnf.update(vnf_params)
+        render json: @vnf
+    else
+        render json: {status: "ERROR", data: @vnf.errors}
+    end
   end
 
   # DELETE /vnfs/1

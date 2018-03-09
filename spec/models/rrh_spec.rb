@@ -35,7 +35,7 @@ RSpec.describe Rrh, type: :model do
         end
 
         it 'ensure longitude' do
-            rrh = @scenario.rrhs.new(ip: "192.168.1.1", model: "USRP", version: "1.2", latitude: 90.4, longitude: 900.4)
+            rrh = @scenario.rrhs.new(ip: "192.168.1.1", model: "USRP", version: "1.2", latitude: 90.4)
             expect(rrh.save).to eql(false)
         end
 

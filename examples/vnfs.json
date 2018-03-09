@@ -1,0 +1,20 @@
+[
+    {
+        "name": "vnf",
+        "cores": 1, 
+        "ram": 1024,
+        "disc": 5
+    },
+    {
+        "name": "vnf",
+        "cores": 1, 
+        "ram": 1024,
+        "disc": 5
+    },
+    {
+        "name": "vnf",
+        "cores": 1, 
+        "ram": 1024,
+        "disc": 5
+    }
+]

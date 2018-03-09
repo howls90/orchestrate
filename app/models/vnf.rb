@@ -9,5 +9,5 @@ class Vnf < ApplicationRecord
     validates :cores, presence: :true
     validates :ram, presence: :true
     validates :disc, presence: :true
-    validates_inclusion_of :status, :in =>["Running","Shut Down","Building","Deleting"]  
+    validates_inclusion_of :status, :in =>["Running","Shut Down","Building","Deleting"] 
 end

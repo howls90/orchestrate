@@ -19,7 +19,7 @@ class Api::V1::RrhsController < ApplicationController
     else
       render json: {status: 'ERROR', data: @rrh.errors}
     end
-  end
+end
 
   # PATCH/PUT /rrhs/1
   # PATCH/PUT /rrhs/1.json
@@ -46,6 +46,6 @@ class Api::V1::RrhsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def rrh_params
-    params.permit(:ip, :model, :version, :latitude, :longitude)
+    params.require(:rrh).permit(:ip, :model, :version, :latitude, :longitude)
   end
 end

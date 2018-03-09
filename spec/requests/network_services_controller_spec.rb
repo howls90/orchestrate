@@ -22,7 +22,7 @@ RSpec.describe 'Network Service API' do
     end
 
     context "GET #index" do
-        it 'return all network services' do
+        it 'Return all network services' do
             get "/api/v1/network_services", 
                 headers: { "Authorization" => "Authorization: #{@jwt}" }
             expect(json[0]['id']).to eql(@network_service.id)
@@ -30,7 +30,7 @@ RSpec.describe 'Network Service API' do
     end
 
     context "GET #show" do
-        it 'show request' do
+        it 'Show request' do
             get "/api/v1/network_services/#{@network_service.id}", 
                 headers: { "Authorization" => "Authorization: #{@jwt}" }
             expect(json['name']).to eql('networkservice')
@@ -38,7 +38,7 @@ RSpec.describe 'Network Service API' do
     end
 
      context 'GET #destroy' do
-         it 'destroy Network Service' do
+         it 'Destroy Network Service' do
              delete "/api/v1/network_services/#{@network_service.id}", 
              headers: { "Authorization" => "Authorization: #{@jwt}" }
              expect(json['message']).to eql('Network Service deleted')
@@ -46,7 +46,7 @@ RSpec.describe 'Network Service API' do
      end
 
      context 'POST #create' do
-         it 'create network service' do
+         it 'Create network service' do
              params = { name: 'networkservice2' }
              post "/api/v1/network_services", 
                   params: params.to_json, headers: request_header

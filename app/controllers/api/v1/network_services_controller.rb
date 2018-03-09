@@ -4,19 +4,19 @@ class Api::V1::NetworkServicesController < ApplicationController
   # GET /network_services
   # GET /network_services.json
   def index
-      render json: NetworkService.all.to_json(:include => [:vnfs])
+    render json: NetworkService.all.to_json(:include => [:vnfs])
   end
 
   # GET /network_services/1
   # GET /network_services/1.json
   def show
-      render json: @network_service.to_json(:include => [:vnfs])
+    render json: @network_service.to_json(:include => [:vnfs])
   end
 
   # POST /network_services
   # POST /network_services.json
   def create
-      @network_service = @current_user.network_services.new(network_service_params)
+    @network_service = @current_user.network_services.new(network_service_params)
     if @network_service.save
       render json: @network_service
     else
@@ -28,7 +28,7 @@ class Api::V1::NetworkServicesController < ApplicationController
   # PATCH/PUT /network_services/1.json
   def update
     if @network_service.update(network_service_params)
-        render json: @network_service
+      render json: @network_service
     else
     	render json: {status: 'ERROR', message: 'Bad params! {:name}', data: @network_service.errors}
     end

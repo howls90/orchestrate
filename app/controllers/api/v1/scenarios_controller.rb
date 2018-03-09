@@ -1,3 +1,5 @@
+require 'json'
+
 class Api::V1::ScenariosController < ApplicationController
   before_action :set_scenario, only: [:show, :destroy, :update]
   
@@ -6,15 +8,15 @@ class Api::V1::ScenariosController < ApplicationController
   end
 
   def show
-      render json: @scenario.to_json( :include => [:rrhs] )
+      render json: @scenario.to_json( :include => [:rrhs])
   end
 
   def create
-    @scenario = Scenario.new(scenario_params)
-    if @scenario.save
-      render json: @scenario
+    scenario = Scenario.new(scenario_params)
+    if scenario.save
+      render json: scenario
     else
-      render json: {status: 'ERROR', data: @scenario.errors}
+      render json: {status: 'ERROR', data: scenario.errors}
     end
   end
   
