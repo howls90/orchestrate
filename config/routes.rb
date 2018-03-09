@@ -12,26 +12,13 @@ Rails.application.routes.draw do
           end
 
           resources :pops
+          resources :users
           resources :scripts
+          resources :alarms
 
           resources :network_services do
               resources :vnfs
           end
-          resources :alarms
-      end
-      
-      namespace 'testing' do
-          resources :scenarios do
-            resources :rrhs
-          end
-
-          resources :pops
-          resources :scripts
-
-          resources :network_services do
-              resources :vnfs
-          end
-          resources :alarms
       end
   end
 end
