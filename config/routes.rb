@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
           resources :network_services do
               resources :vnfs
+              get 'vnfs/:id/activate', to: "vnfs#activate"
           end
       end
   end

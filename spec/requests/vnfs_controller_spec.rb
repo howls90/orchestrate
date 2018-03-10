@@ -48,6 +48,14 @@ RSpec.describe 'VNF API' do
         end
     end
 
+    context "GET #activate" do
+        it 'show request' do
+            get "/api/v1/network_services/#{@ns.id}/vnfs/#{@vnf.id}/activate",
+                headers: { "Authorization" => "Authorization: #{@jwt}" }
+            expect(json['data']).to eql("Shut Down")
+        end
+    end
+
     context 'GET #destroy' do
         it 'destroy vnf' do
             delete "/api/v1/network_services/#{@ns.id}/vnfs/#{@vnf.id}",

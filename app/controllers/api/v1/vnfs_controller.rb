@@ -1,5 +1,5 @@
 class Api::V1::VnfsController < ApplicationController
-  before_action :set_vnf, only: [:show, :edit, :update, :destroy]
+  before_action :set_vnf, only: [:show, :edit, :update, :destroy, :activate]
 
   # GET /vnfs
   # GET /vnfs.json
@@ -38,8 +38,17 @@ class Api::V1::VnfsController < ApplicationController
     else
         render json: {status: "ERROR", data: @vnf.error}
     end
-end
+  end
 
+  # GET /vnfs/1
+  # GET /vnfs/1.json
+  def activate
+    OpenstackWorker.perform_async("marti")
+    render json: {status: "OK", data: @vnf.status}
+  end
+
+  # DELETE /vnfs/1
+  # DELETE /vnfs/1.json
   def destroy
     @rrh.destroy
     if @vnf.save
